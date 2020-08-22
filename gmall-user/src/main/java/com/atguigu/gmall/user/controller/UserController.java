@@ -4,6 +4,7 @@ import com.atguigu.gmall.bean.UmsMemberReceiveAddress;
 import com.atguigu.gmall.service.UserService;
 import com.atguigu.gmall.bean.UmsMember;
 import com.atguigu.gmall.bean.UmsMemberReceiveAddress;
+import com.atguigu.gmall.user.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,8 @@ import java.util.List;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    //UserService userService;
+    UserServiceImpl userService;
 
     @RequestMapping("getReceiveAddressByMemberId")
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId){

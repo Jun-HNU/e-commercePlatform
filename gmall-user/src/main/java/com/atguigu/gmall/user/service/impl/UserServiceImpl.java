@@ -17,7 +17,7 @@ import redis.clients.jedis.Jedis;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService {
+public  class UserServiceImpl implements UserService {
 
     @Autowired
     UserMapper userMapper;
@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UmsMemberReceiveAddressMapper umsMemberReceiveAddressMapper;
 
-    @Autowired
-    RedisUtil redisUtil;
+    /*@Autowired
+    RedisUtil redisUtil;*/
 
     @Override
     public List<UmsMember> getAllUser() {
@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UmsMember login(UmsMember umsMember) {
-        Jedis jedis = null;
+/*        Jedis jedis = null;
         try {
             jedis = redisUtil.getJedis();
 
@@ -75,7 +75,33 @@ public class UserServiceImpl implements UserService {
             return umsMemberFromDb;
         }finally {
             jedis.close();
-        }
+        }*/
+        return null;
+    }
+
+    @Override
+    public void addUserToken(String token, String memberId) {
+
+    }
+
+    @Override
+    public UmsMember addOauthUser(UmsMember umsMember) {
+        return null;
+    }
+
+    @Override
+    public UmsMember checkOauthUser(UmsMember umsCheck) {
+        return null;
+    }
+
+    @Override
+    public UmsMember getOauthUser(UmsMember umsMemberCheck) {
+        return null;
+    }
+
+    @Override
+    public UmsMemberReceiveAddress getReceiveAddressById(String receiveAddressId) {
+        return null;
     }
 
     private UmsMember loginFromDb(UmsMember umsMember) {
